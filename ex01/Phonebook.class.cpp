@@ -37,10 +37,10 @@ void Phonebook::_searchContact() {
 	{
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		std::cout << "# Invalid Index" << std::endl;
+		std::cout << "# Invalid Index";
 		if (std::cin.eof())
 			return;
-		std::cout << "~";
+		std::cout << std::endl << "~";
 	}
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	if (index > 0)
