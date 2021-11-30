@@ -1,7 +1,5 @@
 #include "Karen.hpp"
 
-typedef void (Karen::*KAREN_FUNCS)(void);
-
 void Karen::debug(void)
 {
 	std::cout << "[DEBUG] " << std::endl
@@ -26,14 +24,24 @@ void Karen::error(void)
 	<< "I want to speak to the manager now. " << std::endl;
 }
 
+Karen::action Karen::funcs[] = { &Karen::debug, &Karen::info, &Karen::warning, &Karen::error };
+
 void Karen::complain(std::string level)
 {
 	std::string levels[] = { "debug", "info", "warning", "error" };
-	KAREN_FUNCS funcs[] = { &Karen::debug, &Karen::info, &Karen::warning, &Karen::error };
 
-	switch (level)
+	int i = 0;
+	while (i < 4 && levels[i] != level)
+		i++;
 
-	std::cerr << "[ Probably complaining about insignificant problems ]"<< std::endl;
+	switch (i)
+	{
+		case 4:
+			std::cerr << RED << "[ Probably complaining about insignificant problems ]" << RESET << std::endl;
+			break;
+		default:
+			(this->*funcs[i])();
+	}
 }
 
 
