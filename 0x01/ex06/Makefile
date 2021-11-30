@@ -2,7 +2,7 @@ CC = c++
 
 OS_NAME	= $(shell uname -s | tr A-Z a-z)
 ifeq	($(OS_NAME), linux)
-	CPPFLAGS = -Wall -Wextra -Werror -Wno-used -std=c++98 -MMD
+	CPPFLAGS = -Wall -Wextra -Werror -Wno-unused -std=c++98 -MMD
 else
 	CPPFLAGS = -Wall -Wextra -Werror -Wno-unused -std=c++98 -MMD
 endif
