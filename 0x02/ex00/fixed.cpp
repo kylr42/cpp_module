@@ -4,11 +4,11 @@
 
 #include "fixed.hpp"
 
-Fixed::Fixed() : _raw(0){
+Fixed::Fixed(int const raw) : _raw(raw){
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &src) {
+Fixed::Fixed(const Fixed &src) : _raw(src._raw) {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
