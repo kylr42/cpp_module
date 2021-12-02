@@ -3,4 +3,4 @@ project(0x02)
 
 set(CMAKE_CXX_STANDARD 98)
 
-add_executable(0x02 ex00/main.cpp ex00/fixed.cpp ex00/fixed.hpp)
+add_executable(0x02 ex02/main.cpp ex02/fixed.cpp ex02/fixed.hpp)
