@@ -16,6 +16,8 @@ void File::replace(const std::string& s1, const std::string& s2)
 {
 	std::string line;
 
+	if (!_inFile)
+	    throw std::invalid_argument("file not open");
 	while (std::getline(_inFile, line))
 		_outFile << replaceLine(line, s1, s2) << std::endl;
 }
