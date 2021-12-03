@@ -8,7 +8,7 @@
 
 int main() {
 	ScavTrap robot1("S1");
-	new ScavTrap("S2");
+
 	srand(time(NULL));
 	while (robot1.getHitpoints() > 0) {
 

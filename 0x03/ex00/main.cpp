@@ -9,7 +9,6 @@
 int main()
 {
 	ClapTrap robot1("C1");
-	new ClapTrap("C2");
 
 	srand(time(NULL));
 	while (robot1.getPoints() > 0) {
