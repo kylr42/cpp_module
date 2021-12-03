@@ -3,6 +3,8 @@
 //
 
 #include "ClapTrap.hpp"
+#include "../ex01/ClapTrap.hpp"
+
 
 ClapTrap::ClapTrap(const std::string &name)
 		: _name(name), _hitpoints(10), _energyPoints(10), _attackDamage(0) {
@@ -40,6 +42,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 			  << " hitpoints!" << std::endl;
 }
 
-int ClapTrap::getPoints(void) {
+
+int ClapTrap::getPoints(void) const {
 	return _hitpoints;
 }

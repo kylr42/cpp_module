@@ -5,11 +5,12 @@
 #ifndef SCAVTRAP_HPP
 #define SCAVTRAP_HPP
 
+#include "ClapTrap.hpp"
 
-class ScavTrap {
+class ScavTrap : public ClapTrap {
 
 public:
-	explicit ScavTrap();
+	explicit ScavTrap(const std::string& name);
 	~ScavTrap();
 
 	void guardGate();
