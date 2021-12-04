@@ -17,7 +17,6 @@
 #define CYAN    "\033[1m\033[36m"      /* Bold Cyan */
 #define WHITE   "\033[1m\033[37m"      /* Bold White */
 
-
 class ClapTrap {
 private:
 	int _hitpoints;

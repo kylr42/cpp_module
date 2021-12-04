@@ -5,7 +5,7 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(const std::string &name)
-		: _name(name), _hitpoints(10), _energyPoints(10), _attackDamage(0) {
+		: _hitpoints(10), _energyPoints(10), _attackDamage(0), _name(name) {
 	std::cout << "+ Created: " << GREEN << name << RESET << std::endl;
 }
 
