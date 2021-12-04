@@ -8,9 +8,9 @@ DiamondTrap::DiamondTrap(const std::string &name)
 : ClapTrap(name), ScavTrap(name), FragTrap(name) {
     _diamondName = name;
     ClapTrap::setName(name + "_clap_name");
-    setHitpoints(FragTrap::getHitpoints());
-    setEnergy(ScavTrap::getEnergy());
-    setDamage(FragTrap::getDamage());
+    setHitpoints(FragTrap::_hitpoints);
+    setEnergy(ScavTrap::_energyPoints);
+    setDamage(FragTrap::_attackDamage);
 
     std::cout
             << BLACK << "*** " << RESET
@@ -36,6 +36,9 @@ void DiamondTrap::whoAmI(void) {
     std::cout
             << "+ ClapTrap: " << GREEN
             << ClapTrap::getName() << std::endl << RESET
-            << "* DiamondTrap: " << CYAN
+            << "\t* DiamondTrap: " << CYAN
             << _diamondName << std::endl << RESET;
+    std::cout << "\tHitpoints: " << getHitpoints() << std::endl;
+    std::cout << "\tEnergy: " << getEnergy() << std::endl;
+    std::cout << "\tDamage: " << getDamage() << std::endl;
 }

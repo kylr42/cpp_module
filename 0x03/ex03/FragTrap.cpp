@@ -5,9 +5,9 @@
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap(const std::string &name) : ClapTrap(name) {
-    setHitpoints(100);
-    setEnergy(100);
-    setDamage(30);
+    _hitpoints = 100;
+    _energyPoints = 100;
+    _attackDamage = 30;
 
     std::cout
             << "✖️✖️✖️ FragTrap "

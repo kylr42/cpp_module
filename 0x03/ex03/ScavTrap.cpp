@@ -5,9 +5,9 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name) {
-	setHitpoints(100);
-	setEnergy(50);
-	setDamage(20);
+	_hitpoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 
 	std::cout
 			<< BLUE << "××× " << RESET
