@@ -41,8 +41,8 @@ public:
 	void setHitpoints(int newPoints);
 	void setName(const std::string& newName);
 
-	//	Utils
-	void attack(std::string const & target);
+    //	Utils
+    virtual void attack(std::string const & target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 };
