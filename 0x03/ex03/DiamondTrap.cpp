@@ -5,8 +5,10 @@
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(const std::string &name)
-: ClapTrap(name), ScavTrap(name), FragTrap(name) {
+: ScavTrap(name), FragTrap(name) {
     _diamondName = name;
+
+
     ClapTrap::setName(name + "_clap_name");
     setHitpoints(FragTrap::_hitpoints);
     setEnergy(ScavTrap::_energyPoints);
