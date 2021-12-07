@@ -7,7 +7,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap {
+class ScavTrap : public ClapTrap {
 
 public:
 	explicit ScavTrap(const std::string& name);
@@ -15,7 +15,7 @@ public:
 
 	void guardGate();
 
-    virtual void attack(std::string const &target);
+    void attack(std::string const &target);
 };
 
 

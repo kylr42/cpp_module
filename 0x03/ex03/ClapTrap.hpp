@@ -19,7 +19,7 @@
 
 
 class ClapTrap {
-protected:
+private:
 	int _hitpoints;
 	int _energyPoints;
 	int _attackDamage;
