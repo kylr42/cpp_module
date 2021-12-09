@@ -8,7 +8,7 @@
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
-class Form {
+class AForm {
 private:
 	std::string _name;
 	int _gradeSign;
@@ -16,13 +16,17 @@ private:
 	bool _isSigned;
 
 public:
-	explicit Form(const std::string& name, int gradeSign, int gradeExec, bool isSigned=false);
+	explicit AForm(const std::string& name, int gradeSign, int gradeExec, bool isSigned=false);
+	AForm(AForm const &src);
+	AForm & operator=(AForm const &rhs);
+	~AForm();
 
 	int getGradeSign() const { return _gradeSign;}
 	int getGradeExec() const { return _gradeExec;}
 	bool getSigned() const { return _isSigned;}
 	const std::string &getName() const { return _name; }
 	void beSigned(Bureaucrat const &bureaucrat);
+	virtual void execute(Bureaucrat const & executor) const = 0;
 
 	class GradeTooHighException : public std::exception {
 		const char *what() const throw() { return "✕ Grade too high ✕"; };
@@ -31,8 +35,12 @@ public:
 	class GradeTooLowException : public std::exception {
 		const char *what() const throw() { return "✕ Grade too low ✕"; };
 	};
+
+	class FormNotSignedException : public std::exception {
+		const char *what() const throw() { return "✕ Form not signed ✕"; };
+	};
 };
 
-std::ostream& operator<<(std::ostream & out, Form const& i);
+std::ostream& operator<<(std::ostream & out, AForm const& i);
 
 #endif //AFORM_HPP

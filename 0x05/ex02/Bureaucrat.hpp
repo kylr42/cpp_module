@@ -6,7 +6,8 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include <stdexcept>
+#include <string>
+#include <exception>
 #include "AForm.hpp"
 
 #define RESET   "\033[0m"
@@ -19,7 +20,7 @@
 #define CYAN    "\033[1m\033[36m"      /* Bold Cyan */
 #define WHITE   "\033[1m\033[37m"      /* Bold White */
 
-class Form;
+class AForm;
 class Bureaucrat {
 
 private:
@@ -30,15 +31,17 @@ public:
 	explicit Bureaucrat(const std::string& name, int grade=0);
 	Bureaucrat(Bureaucrat const &src);
 	Bureaucrat & operator=(Bureaucrat const &rhs);
+	~Bureaucrat();
 
 	int getGrade() const { return _grade; }
 	std::string const &getName( void ) const {return _name; }
 
 	void highGrade();
 	void lowGrade();
-	void signForm(Form &f);
+	void signForm(AForm &f);
+	void executeForm(AForm const &f);
 
-	class GradeTooHighException: public std::exception
+		class GradeTooHighException: public std::exception
 	{
 		const char* what() const throw() {
 			return "Grade too high";
