@@ -21,7 +21,7 @@ public:
 	AForm *makeForm(std::string const &name, std::string const &target) const;
 
 	class FormNotFoundException : public std::exception {
-		const char *what() const throw() { return "✕ Form not found ✕ ✕"; };
+		const char *what() const throw() { return "✕ ✕ Form not found ✕ ✕"; };
 	};
 
 };
