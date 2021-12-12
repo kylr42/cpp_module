@@ -3,6 +3,5 @@ project(0x02)
 
 set(CMAKE_CXX_STANDARD 98)
 
-add_executable(ex00
-        ex00/main.cpp
-        ex00/Converter.cpp ex00/Converter.hpp)
+add_executable( ex02
+        ex02/main.cpp ex02/Base.hpp)
