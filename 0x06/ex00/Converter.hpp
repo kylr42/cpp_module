@@ -6,7 +6,12 @@
 #define CONVERTER_HPP
 
 #include <iostream>
-#include <string>
+#include <cstdlib>
+#include <cstring>
+
+#define GREEN "\033[32m"
+#define RED "\033[31m"
+#define RESET "\033[0m"
 
 class Converter {
 private:
@@ -18,14 +23,14 @@ public:
 	Converter &operator=(Converter const &rhs);
 	~Converter();
 
+	operator int();
+	operator char();
+	operator float();
+	operator double();
 	void operator()(const char *arg);
 	void operator()(void);
 
-	int toInt();
-	char toChar();
-	const std::string & toFloat();
-	const std::string & toDouble();
-
+	void print(int i);
 };
 
 

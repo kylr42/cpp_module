@@ -17,34 +17,71 @@ Converter &Converter::operator=(const Converter &rhs) {
 	return *this;
 }
 
-Converter::~Converter() {
-	NULL;
-}
-#include <cstdlib>
-#include <cstring>
-#define GREEN "\033[32m"
-#define RED "\033[31m"
-#define END "\033[0m"
-
-int Converter::toInt() {
-
+Converter::operator int()
+{
 	int i = atoi(_arg);
-	std::cout << "Int: " << i << std::endl;
-
 	if (!i && *_arg != '0' && strlen(_arg) < 2)
-		std::cout << "Int: " << (int) *_arg << std::endl;
-	return 0;
+		i = static_cast<int>(*_arg);
+	if (!i && *_arg != '0')
+		throw "impossible";
+	return i;
 }
 
-char Converter::toChar() {
+Converter::operator char()
+{
+	int i = atoi(_arg) % 128;
+	if (i < 0)
+		i = -i;
+	if (!i && *_arg != '0' && strlen(_arg) < 2)
+		i = static_cast<int>(*_arg);
+	if (!strcmp(_arg, "nan"))
+		throw "impossible";
+	if (!isprint(i))
+		throw "Non displayable";
+	return static_cast<char>(i);
+}
 
+Converter::operator float()
+{
+	float i = atof(_arg);
+	if (!i && *_arg != '0' && strlen(_arg) < 2)
+		i = static_cast<float>(*_arg);
+	if (!i && *_arg != '0')
+		throw "nanf";
+	return i;
+}
 
+Converter::operator double()
+{
+	double i = atof(_arg);
+	if (!i && *_arg != '0' && strlen(_arg) < 2)
+		i = static_cast<double>(*_arg);
+	if (!i && *_arg != '0')
+		throw "nan";
+	return i;
+}
+
+void Converter::print(int i)
+{
+	try {
+		if (i == 0)
+			std::cout << GREEN << "Int: " << (int) *this << RESET << std::endl;
+		else if (i == 1)
+			std::cout << GREEN << "Char: " << (char) *this << std::endl;
+		else if (i == 2)
+			std::cout << GREEN << "Float: " << (float) *this << (static_cast<int>((float) *this)
+				- ((float) *this) ? "f" : ".0f")  << RESET <<  std::endl;
+		else if (i == 3)
+			std::cout << GREEN << "Double: " << (double) *this <<  (static_cast<int>((float) *this)
+				- ((float) *this) ? "f" : ".0f") << RESET  << std::endl;
+	} catch (const char *e) {
+		std::cerr << RED << e << RESET << std::endl;
+	}
 }
 
 void Converter::operator()(void) {
-	Converter::toInt();
-//	std::cout << "Int: " << Converter::toInt() << std::endl;
-//	std::cout << "Char: " << Converter::toChar() << std::endl;
+	for (int i = 0; i < 4; i++)
+		print(i);
 }
 
 void Converter::operator()(const char *arg) {
@@ -52,5 +89,6 @@ void Converter::operator()(const char *arg) {
 	(*this)();
 }
 
-
-
+Converter::~Converter() {
+	NULL;
+}
