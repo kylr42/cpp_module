@@ -8,7 +8,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cstdlib>
 
 class Span {
 private:
@@ -26,8 +25,8 @@ public:
 
 	void addNumber(unsigned int i);
 	void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
-	int shortestSpan(void) const;
-	int longestSpan(void) const;
+	unsigned int shortestSpan(void);
+	unsigned int longestSpan(void);
 
 	class outOfRange: public std::exception
 	{
