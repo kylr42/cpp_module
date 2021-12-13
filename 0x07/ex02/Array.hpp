@@ -40,18 +40,18 @@ public:
 	}
 
 	T &operator[](int index) {
-		if (index < 0 || index >= _size)
+		if (index < 0 || index >= static_cast<int>(_size))
 			throw std::exception();
 		return _arr[index];
 	}
 
 	T const & operator[](int index) const {
-		if (index < 0 || index >= _size)
+		if (index < 0 || index >= static_cast<int>(_size))
 			throw std::exception();
 		return _arr[index];
 	}
 
-	int size() const {
+	unsigned int size() const {
 		return _size;
 	}
 };
