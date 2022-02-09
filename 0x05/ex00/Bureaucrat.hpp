@@ -19,6 +19,7 @@ public:
 	explicit Bureaucrat(const std::string& name, int grade=0);
 	Bureaucrat(Bureaucrat const &src);
 	Bureaucrat & operator=(Bureaucrat const &rhs);
+	~Bureaucrat();
 
 	int getGrade() const { return _grade; }
 	std::string getName( void ) const {return _name; }
